@@ -315,7 +315,7 @@ function chado_autocomplete_pub($string = '') {
   ";
   $pubs = chado_query($sql, [':str' => $string . '%']);
   while ($pub = $pubs->fetchObject()) {
-    $val = $pub->title . " [id:" . $pub->pub_id . "]";
+    $val = $pub->title . " [id: " . $pub->pub_id . "]";
     $items[$val] = $pub->title;
   }
 
@@ -362,7 +362,7 @@ function chado_import_pub_by_dbxref($pub_dbxref, $do_contact = FALSE,
   // the terminal
   $message_type = 'pub_import';
   $message_opts = [
-    'watchdog' == FALSE,
+    'watchdog' => FALSE,
     'print' => TRUE,
   ];
 
@@ -498,7 +498,7 @@ function chado_execute_pub_importer($import_id, $publish = TRUE,
   // the terminal
   $message_type = 'pub_import';
   $message_opts = [
-    'watchdog' == FALSE,
+    'watchdog' => FALSE,
     'job' => $job,
     'print' => TRUE,
   ];
@@ -664,7 +664,7 @@ function chado_reimport_publications($do_contact = FALSE, $dbxref = NULL,
   // the terminal
   $message_type = 'pub_import';
   $message_opts = [
-    'watchdog' == FALSE,
+    'watchdog' => FALSE,
     'print' => TRUE,
   ];
 
